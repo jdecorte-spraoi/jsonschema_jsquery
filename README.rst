@@ -46,7 +46,7 @@ Dev Installation
 ----------------
 ::
 
-    $ python -m venv sct_jschema  # NOTE: Must have Python 3.8
+    $ python -m venv sct_jschema  # NOTE: Must use Python 3.8
     $ cd sct_jschema
     $ source bin/activate
     $ mkdir src
