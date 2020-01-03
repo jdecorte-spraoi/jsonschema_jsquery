@@ -17,10 +17,10 @@ def get_type_for_key_path(schema: dict, key_path: str) -> [str, None]:
     for key in keys:
         if key not in properties:
             return None
-        if "type" in properties[key]:
-            return properties[key]["type"]
-        elif "$ref" in properties[key]:
-            definition_key = properties[key]["$ref"].split("/")[-1]
+        if key_path_type := properties[key].get("type"):
+            return key_path_type
+        elif ref_value := properties[key].get("$ref"):
+            definition_key = ref_value.split("/")[-1]
             properties = schema.get("definitions").get(definition_key).get("properties")
 
     return None
